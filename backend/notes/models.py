@@ -36,6 +36,31 @@ class Category(models.Model):
         return f"{self.name} ({self.user})"
 
 
+class Note(models.Model):
+    """A user-owned note, always assigned to a category."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="notes",
+    )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name="notes",
+    )
+    title = models.CharField(max_length=255, blank=True, default="")
+    content = models.TextField(blank=True, default="")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-updated_at"]
+
+    def __str__(self):
+        return f"{self.title or '(untitled)'} — {self.user}"
+
+
 def seed_default_categories(user):
     """Create the default set of categories for a freshly registered user."""
     return Category.objects.bulk_create(
