@@ -6,8 +6,9 @@ export function EmptyState() {
       <Image
         src="/images/cactus.png"
         alt="No notes yet"
-        width={95}
-        height={114}
+        width={145}
+        height={173}
+        className="w-[95px] h-auto"
       />
       <p className="font-sans text-[20px] text-center text-black/60 max-w-sm">
         I&apos;m just here waiting for your charming notes...

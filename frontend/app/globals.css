@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap");
 
 @theme {
   /* Brand palette — from Figma design tokens */
@@ -13,9 +12,9 @@
   --color-cat-school: #f7e3b3;
   --color-cat-personal: #a9d7c9;
 
-  /* Typography */
-  --font-serif: "Inria Serif", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  /* Typography — self-hosted via next/font (see app/layout.tsx) */
+  --font-serif: var(--font-inria-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
 body {

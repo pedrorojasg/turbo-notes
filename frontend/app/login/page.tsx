@@ -7,8 +7,9 @@ export default function LoginPage() {
       <Image
         src="/images/cactus.png"
         alt="Friendly cactus"
-        width={95}
-        height={114}
+        width={145}
+        height={173}
+        className="w-[95px] h-auto"
         priority
       />
 
