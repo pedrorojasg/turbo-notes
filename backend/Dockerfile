@@ -15,7 +15,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+RUN chmod +x start.sh
+
 EXPOSE 8000
 
-# Production default. docker-compose overrides this for local dev.
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Production default: migrate + collectstatic + gunicorn on $PORT.
+# docker-compose overrides this command for local dev.
+CMD ["./start.sh"]
