@@ -17,13 +17,13 @@ export function NoteCard({ note }: { note: Note }) {
         }}
       >
         {/* Date + category row */}
-        <div className="flex gap-2 items-center text-[12px] whitespace-nowrap shrink-0">
+        <div className="flex gap-2 items-start text-[12px] whitespace-nowrap shrink-0">
           <span className="font-bold font-sans">{dateLabel}</span>
           <span className="font-normal font-sans">{note.category_name}</span>
         </div>
 
         {/* Title */}
-        <h2 className="font-serif font-bold text-[24px] leading-tight line-clamp-2 shrink-0">
+        <h2 className="font-serif font-bold text-[24px] leading-[normal] line-clamp-2 shrink-0">
           {note.title || <span className="opacity-40 italic">Untitled</span>}
         </h2>
 

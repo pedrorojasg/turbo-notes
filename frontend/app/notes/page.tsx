@@ -60,7 +60,7 @@ export default async function NotesPage({ searchParams }: NotesPageProps) {
           {notes.length === 0 ? (
             <EmptyState />
           ) : (
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-x-[13px] gap-y-4">
               {notes.map((note) => (
                 <NoteCard key={note.id} note={note} />
               ))}

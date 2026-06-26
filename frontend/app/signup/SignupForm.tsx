@@ -48,7 +48,7 @@ export function SignupForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full h-[43px] border border-accent rounded-full text-accent font-bold text-[16px] font-sans hover:bg-accent hover:text-cream transition-colors disabled:opacity-60 cursor-pointer mt-1"
+        className="w-full h-[43px] border border-accent rounded-[46px] text-accent font-bold text-[16px] font-sans hover:bg-accent/20 transition-colors disabled:opacity-60 cursor-pointer mt-[31px]"
       >
         {pending ? "Creating account…" : "Sign Up"}
       </button>

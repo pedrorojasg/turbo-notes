@@ -59,9 +59,9 @@ describe("NoteEditor", () => {
     expect(screen.getByText("Random Thoughts")).toBeTruthy();
   });
 
-  it("shows 'Last edited:' with formatted timestamp", () => {
+  it("shows 'Last Edited:' with formatted timestamp", () => {
     renderEditor();
-    expect(screen.getByText(/Last edited:/)).toBeTruthy();
+    expect(screen.getByText(/Last Edited:/)).toBeTruthy();
   });
 
   it("debounces save when title changes — does not call fetch immediately", async () => {
@@ -140,9 +140,9 @@ describe("NoteEditor", () => {
     expect(body.category_id).toBe(2);
   });
 
-  it("navigates to /notes when back button is clicked", () => {
+  it("navigates to /notes when the close button is clicked", () => {
     renderEditor();
-    fireEvent.click(screen.getByLabelText("Back to notes"));
+    fireEvent.click(screen.getByLabelText("Close note"));
     expect(mockPush).toHaveBeenCalledWith("/notes");
   });
 });

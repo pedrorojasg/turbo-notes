@@ -17,7 +17,7 @@ export function PasswordInput({ label = "Password", error, className, ...props }
           {...props}
           type={visible ? "text" : "password"}
           placeholder={label}
-          className={`w-full border border-accent rounded-[6px] px-[15px] py-[7px] text-[12px] font-sans bg-transparent placeholder-neutral-400 focus:outline-none focus:ring-1 focus:ring-accent pr-10 ${error ? "border-red-400" : ""} ${className ?? ""}`}
+          className={`w-full h-[39px] border border-accent rounded-[6px] px-[15px] py-[7px] text-[12px] font-sans bg-transparent placeholder-neutral-400 focus:outline-none focus:ring-1 focus:ring-accent pr-10 ${error ? "border-red-400" : ""} ${className ?? ""}`}
         />
         <button
           type="button"

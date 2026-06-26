@@ -29,9 +29,9 @@ export function NewNoteButton({ defaultCategoryId }: { defaultCategoryId: number
     <button
       onClick={handleClick}
       disabled={loading}
-      className="flex items-center gap-[6px] h-[43px] px-[16px] py-[12px] border border-accent rounded-[46px] text-accent font-bold text-[16px] font-sans hover:bg-accent hover:text-cream transition-colors disabled:opacity-60 cursor-pointer whitespace-nowrap"
+      className="flex items-center justify-center gap-[6px] h-[43px] w-[133px] px-[16px] py-[12px] border border-accent rounded-[46px] text-accent font-bold text-[16px] font-sans hover:bg-accent/20 transition-colors disabled:opacity-60 cursor-pointer whitespace-nowrap"
     >
-      <span className="text-[20px] leading-none">+</span>
+      <span className="text-[16px] leading-none">+</span>
       {loading ? "Creating…" : "New Note"}
     </button>
   );

@@ -238,8 +238,3 @@ Quality + tests above pixel-perfection.
   recolor → filter → logout/login) against the **deployed** Railway + Vercel URLs.
 - Cross-check each screen against the Figma frames via the Figma MCP screenshots.
 ```
-
-
-postgres://postgres.qsozhhxkjrvglzufmszs:Sk2aba64IHHT0r9q@aws-1-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x
-
-postgres://postgres.qsozhhxkjrvglzufmszs:Sk2aba64IHHT0r9q@aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require
