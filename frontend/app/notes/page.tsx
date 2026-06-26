@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { NoteCard } from "@/components/NoteCard";
 import { EmptyState } from "@/components/EmptyState";
 import { NewNoteButton } from "@/components/NewNoteButton";
+import { logoutAction } from "@/lib/auth-actions";
 import type { Category, Note } from "@/lib/types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
@@ -43,7 +44,15 @@ export default async function NotesPage({ searchParams }: NotesPageProps) {
   return (
     <div className="min-h-screen bg-cream flex flex-col">
       {/* Top bar */}
-      <header className="flex items-center justify-end px-8 pt-8 pb-2">
+      <header className="flex items-center justify-between px-8 pt-8 pb-2">
+        <form action={logoutAction}>
+          <button
+            type="submit"
+            className="text-accent text-[14px] font-sans hover:underline cursor-pointer"
+          >
+            Log out
+          </button>
+        </form>
         {defaultCategoryId && (
           <NewNoteButton defaultCategoryId={defaultCategoryId} />
         )}

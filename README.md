@@ -28,8 +28,6 @@ Framework** backend and a **Next.js (App Router)** frontend.
 
 ## Screenshots
 
-> Add exported screenshots to `docs/screenshots/` and they will render here.
-
 | Login | Notes grid | Editor |
 |---|---|---|
 | ![Login](docs/screenshots/login.png) | ![Notes grid](docs/screenshots/notes.png) | ![Editor](docs/screenshots/editor.png) |
@@ -182,13 +180,27 @@ counts.
 docker compose exec web python manage.py test
 ```
 
-**Frontend — 50 tests** (Vitest + React Testing Library): date utils, schemas,
-category color map, `NoteCard`, `Sidebar`, `EmptyState`, `CategoryDropdown`,
-`PasswordInput`, and the `NoteEditor` autosave/debounce behavior.
+**Frontend — 64 unit tests** (Vitest + React Testing Library): date utils,
+schemas, category color map, `NoteCard`, `Sidebar`, `EmptyState`,
+`CategoryDropdown`, `PasswordInput`, the `NoteEditor` autosave/debounce behavior,
+the BFF route handlers (auth header + status passthrough), `NewNoteButton`, and
+the auth forms.
 
 ```bash
 cd frontend
 npm test
+```
+
+**Frontend — Playwright E2E** (real browser, full stack): a happy-path test that
+signs up, verifies seeded categories + empty state, creates a note, edits it with
+autosave, confirms it persists on the grid, and logs out.
+
+```bash
+cd frontend
+# Requires the backend running (docker compose up) and the dev server (auto-started).
+npm run test:e2e
+# Or against a deployed URL (no local servers needed):
+E2E_BASE_URL=https://turbo-notes-pink.vercel.app npm run test:e2e
 ```
 
 ---
