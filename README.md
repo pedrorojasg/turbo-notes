@@ -4,7 +4,7 @@ A full-stack notes application: create, edit, categorize, and filter plain-text
 notes with debounced autosave and per-category theming. Built with a **Django REST
 Framework** backend and a **Next.js (App Router)** frontend.
 
-**Live demo**
+**Live demo** _(deployment is a self-added bonus — see [below](#deployment))_
 - Frontend (Vercel): https://turbo-notes-pink.vercel.app
 - Backend API (Railway): https://turbo-notes-production.up.railway.app
 - Demo video (5 min): _<!-- TODO: paste your demo video link here -->_
@@ -191,7 +191,11 @@ cd frontend
 npm test
 ```
 
-**Frontend — Playwright E2E** (real browser, full stack): a happy-path test that
+**Frontend — Playwright E2E** _(bonus: an extra layer beyond the unit suite)_.
+The Vitest tests cover components and logic in isolation; this adds a single
+**end-to-end** test that drives a **real browser against the full stack** (Next.js
+→ Django → Postgres) to catch integration/UI regressions that unit tests can't —
+exactly the class of wiring issues that surfaced during deployment. The happy path
 signs up, verifies seeded categories + empty state, creates a note, edits it with
 autosave, confirms it persists on the grid, and logs out.
 
@@ -206,6 +210,12 @@ E2E_BASE_URL=https://turbo-notes-pink.vercel.app npm run test:e2e
 ---
 
 ## Deployment
+
+> **Note — this is a bonus, beyond the challenge requirements.** The challenge only
+> asked for a public repo, this README, and a demo video. I additionally deployed
+> the whole stack to a live, publicly reachable environment to demonstrate that it
+> runs end-to-end in production (and to debug real-world concerns like port binding,
+> connection pooling, and build-time env vars).
 
 The app is deployed across three services:
 
