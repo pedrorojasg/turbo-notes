@@ -5,11 +5,11 @@ export default function SignupPage() {
   return (
     <main className="min-h-screen bg-cream flex flex-col items-center justify-center gap-8">
       <Image
-        src="/images/cactus.png"
-        alt="Friendly cactus"
-        width={145}
-        height={173}
-        className="w-[95px] h-auto"
+        src="/images/signup-cat.png"
+        alt="Sleeping cat"
+        width={567}
+        height={404}
+        className="w-[188px] h-auto"
         priority
       />
 
