@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap");
+
+@theme {
+  /* Brand palette — from Figma design tokens */
+  --color-cream: #faf1e3;
+  --color-accent: #957139;
+  --color-accent-dark: #88642a;
+  --color-accent-light: #e8d5b0;
+
+  /* Category card backgrounds */
+  --color-cat-random: #f3c9a6;
+  --color-cat-school: #f7e3b3;
+  --color-cat-personal: #a9d7c9;
+
+  /* Typography */
+  --font-serif: "Inria Serif", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+}
