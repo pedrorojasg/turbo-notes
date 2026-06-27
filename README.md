@@ -21,6 +21,7 @@ Framework** backend and a **Next.js (App Router)** frontend.
 - [Environment variables](#environment-variables)
 - [Tests](#tests)
 - [Deployment](#deployment)
+- [Project planning](#project-planning)
 - [How AI was used](#how-ai-was-used)
 - [Project structure](#project-structure)
 
@@ -233,29 +234,53 @@ needed between Vercel and Railway.
 
 ---
 
+## Project planning
+
+I ran a discovery and planning phase **before writing any code** and captured the
+outcome in [`PLAN.md`](PLAN.md). The intent was to remove ambiguity up front so
+implementation could move quickly and stay focused on the right things.
+
+**1. Requirements analysis.** I extracted requirements from three sources: the
+written challenge brief, the feature-walkthrough video, and the Figma design file.
+Open questions were resolved into explicit, written decisions rather than discovered mid-build.
+
+**2. Locked scope & architecture.** after some research and discussions with AI, I took the
+architecture decisions: plain-text notes, three fixed auto-seeded categories,
+**httpOnly-cookie JWT auth via a BFF**, split Django settings, a per-route Next.js
+rendering strategy, and a "high-fidelity, token-accurate" design target. These are
+recorded as *locked decisions* in `PLAN.md` so the rationale is traceable.
+
+**3. Incremental roadmap.** Work was sequenced into a **detailed plan**, reviewable
+milestone: backend models → API → frontend auth → notes grid → editor → polish → docs.
+I reviewed and signed off each increment before starting the next.
+
+---
+
 ## How AI was used
 
-This project was built with **Claude (Claude Code)** as a pair-programming agent.
-AI was used throughout, with the developer directing, reviewing, and approving every
-step:
+I used AI (**Claude Code**) as an execution accelerator working under my direction. I owned the requirements
+interpretation, the architecture, the technical decisions, the code review, and the
+final approval of every change; AI produced first drafts and handled mechanical
+implementation, which I reviewed, corrected, and accepted.
 
-- **Planning.** Produced a locked, day-by-day implementation plan (`PLAN.md`) from
-  the challenge brief and Figma file before any code was written.
-- **Design-to-code via the Figma MCP.** Pulled exact design tokens and per-screen
-  layout (`get_design_context` / `get_metadata`) directly from the Figma file rather
-  than approximating, and downloaded illustration assets from the design.
-- **Implementation.** Scaffolded the Django models/serializers/viewsets and the
-  Next.js routes, components, BFF auth, and autosave, following the conventions in
-  `CLAUDE.md` (e.g. App Router specifics, Tailwind v4 `@theme`, `next/font`).
-- **Test coverage.** Wrote the backend `APITestCase` suite and the frontend Vitest
-  suite.
-- **Deployment & debugging.** Diagnosed deploy issues against the live
-  services — Railway port-binding, a missing `start.sh` in the built image, and a
-  `NEXT_PUBLIC_API_URL` misconfiguration — by probing the deployed endpoints and
-  reading logs.
+Where AI was applied — always against decisions and constraints I set:
 
-All Git commits are authored by the repository owner and were manually reviewed
-before committing.
+- **Requirements capture.** I had the feature-walkthrough video transcribed
+  ([turboscribe.ai](https://turboscribe.ai)) and ran the brief + Figma through a
+  planning pass, then made the scope and architecture calls myself (`PLAN.md`).
+- **Brainstorming options.** Used AI to ask about deployment options.
+- **Design-to-code via the Figma MCP.** I directed the use of the Figma MCP to pull
+  exact tokens and per-screen layout (`get_design_context` / `get_metadata`) instead
+  of approximating, and reviewed every screen against the design.
+- **Implementation.** I specified the architecture and the project conventions in
+  `CLAUDE.md`; AI scaffolded the Django and Next.js code to those specs under review.
+- **Testing.** I defined what needed coverage — user isolation, autosave/debounce,
+  the BFF seam, the end-to-end happy path — and reviewed the resulting backend
+  `APITestCase` and frontend Vitest + Playwright suites.
+- **Deployment & debugging.** I drove the diagnosis of the production issues
+  (Railway wrong port, a missing `start.sh` in the built image), using AI to probe endpoints and read logs
+  while I decided the fixes.
+
 
 ---
 
