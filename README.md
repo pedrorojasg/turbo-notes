@@ -7,7 +7,7 @@ Framework** backend and a **Next.js (App Router)** frontend.
 **Live demo** _(deployment is a self-added bonus — see [below](#deployment))_
 - Frontend (Vercel): https://turbo-notes-pink.vercel.app
 - Backend API (Railway): https://turbo-notes-production.up.railway.app
-- Demo video (5 min): _<!-- TODO: paste your demo video link here -->_
+- Demo video (5 min): https://www.awesomescreenshot.com/video/54018213?key=96c6880077da5ab2e32e0cefb9d7683e
 
 ---
 
