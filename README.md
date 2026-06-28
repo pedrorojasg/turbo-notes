@@ -17,6 +17,7 @@ Framework** backend and a **Next.js (App Router)** frontend.
 - [Tech stack](#tech-stack)
 - [Architecture](#architecture)
 - [Key design & technical decisions](#key-design--technical-decisions)
+- [Future work & known limitations](#future-work--known-limitations)
 - [Running locally](#running-locally)
 - [Environment variables](#environment-variables)
 - [Tests](#tests)
@@ -49,6 +50,7 @@ Framework** backend and a **Next.js (App Router)** frontend.
 - **Empty state**, **404 handling** (`notFound()`), **error boundaries**, and
   streaming **loading skeletons**.
 - **Djando Admin**
+- **Browsable API** just in dev (intentionally not enabled in prod)
 - High-fidelity UI matched to the Figma design (colors, type, spacing pulled from
   the design file via the Figma MCP).
 
@@ -114,6 +116,25 @@ Browser ──► Next.js (Vercel)  ──►  Django REST API (Railway)  ──
   Tailwind classes) so they survive production purging.
 - **Self-hosted fonts** via `next/font` (Inter + Inria Serif) — no render-blocking
   external font request, no layout shift.
+
+---
+
+## Future work & known limitations
+
+Conscious scope decisions for the challenge timeframe — called out honestly rather
+than hidden:
+
+- **Pagination.** `GET /api/notes/` returns all of a user's notes as a single array
+  (with `select_related` to avoid N+1, plus optional `?category=` filtering). That's
+  fine for a personal notes app and matches the Figma "wall of cards" (which has no
+  paging control), but it's an unbounded payload at scale. *Next:* cursor pagination
+  on the API + infinite scroll / "load more" on the grid
+- **Mobile styles.** The UI was matched to the Figma **desktop** frames and isn't yet
+  fully responsive. *Next:* a responsive pass — sidebar → drawer, fluid card grid,
+  and tighter editor padding on small screens.
+- **API documentation (Swagger / OpenAPI).** The API isn't self-documented yet.
+  *Next:* add `drf-spectacular` to generate an OpenAPI 3 schema and serve Swagger UI
+  (e.g. at `/api/docs/`).
 
 ---
 
