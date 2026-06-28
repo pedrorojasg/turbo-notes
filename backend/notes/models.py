@@ -69,8 +69,8 @@ def seed_default_categories(user):
                 user=user,
                 name=item["name"],
                 color=item["color"],
-                is_default=True,
+                is_default=True if index == 0 else False,
             )
-            for item in DEFAULT_CATEGORIES
+            for index, item in enumerate(DEFAULT_CATEGORIES)
         ]
     )
