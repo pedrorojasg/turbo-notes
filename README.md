@@ -6,7 +6,7 @@ Framework** backend and a **Next.js (App Router)** frontend.
 
 **Live demo** _(deployment is a self-added bonus — see [below](#deployment))_
 - Frontend (Vercel): https://turbo-notes-pink.vercel.app
-- Backend API (Railway): https://turbo-notes-production.up.railway.app
+- Backend API (Railway): https://turbo-notes-production.up.railway.app/api
 - Demo video (5 min): https://www.awesomescreenshot.com/video/54018213?key=96c6880077da5ab2e32e0cefb9d7683e
 
 ---
@@ -48,6 +48,7 @@ Framework** backend and a **Next.js (App Router)** frontend.
 - **Sidebar filtering** by category, with per-category note counts.
 - **Empty state**, **404 handling** (`notFound()`), **error boundaries**, and
   streaming **loading skeletons**.
+- **Djando Admin**
 - High-fidelity UI matched to the Figma design (colors, type, spacing pulled from
   the design file via the Figma MCP).
 
