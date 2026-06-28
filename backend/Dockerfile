@@ -5,10 +5,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# psycopg2 build dependencies
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends build-essential libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+# No system build deps needed: psycopg2-binary ships a prebuilt wheel (libpq
+# bundled) and every other requirement is pure Python. Keeps the image minimal
+# and free of a C toolchain in production.
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
